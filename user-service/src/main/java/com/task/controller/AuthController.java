@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private  final UserRepository userRepository;
     private  final PasswordEncoder passwordEncoder;
-    private CustomUserServiceImplementation customUserDetail;
-    private  final JwtProvider jwtProvider;
+    private final CustomUserServiceImplementation customUserDetail;
+
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws Exception {
@@ -35,10 +35,10 @@ public class AuthController {
         String password = user.getPassword();
         String fullName = user.getFullName();
         String role=user.getRole();
-        User isEmailExist = userRepository.findByEmail(email);
-        if (isEmailExist!=null){
-            throw  new Exception("user already exist");
-        }
+//        User isEmailExist = userRepository.findByEmail(email);
+//        if (isEmailExist!=null){
+//            throw  new Exception("user already exist");
+//        }
         User createUser = new User();
         createUser.setEmail(email);
         createUser.setFullName(fullName);
@@ -81,7 +81,7 @@ public class AuthController {
     private Authentication authenticate(String username, String password) throws Exception {
         UserDetails userDetails = customUserDetail.loadUserByUsername(username);
         if (userDetails == null){
-            throw  new Exception("invalid username or password");
+            throw new BadCredentialsException("Invalid username or password");
         }
 
         if (!passwordEncoder.matches(password, userDetails.getPassword())){
