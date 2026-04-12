@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,7 +28,7 @@ public class Task {
     private  String description;
     private  String image;
     private  Long assignedUserId;
-    private String<String> tags = new ArrayList<>();
+    private List<String> tags = new ArrayList<>();
     private TaskStatus status;
     private LocalDateTime deadline;
     private LocalDateTime createdAt;
