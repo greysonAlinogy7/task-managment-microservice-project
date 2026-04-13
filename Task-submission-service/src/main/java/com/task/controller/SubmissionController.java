@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/submissions")
 @RequiredArgsConstructor
 public class SubmissionController {
     private  final TaskSubmissionService taskSubmissionService;
