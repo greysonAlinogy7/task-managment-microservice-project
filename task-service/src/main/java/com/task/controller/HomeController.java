@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @GetMapping("/task")
-    public ResponseEntity<String> getAssignedUserTask(@RequestParam(required = false) TaskStatus status, @RequestHeader("Authorization") String jwt) throws Exception {
+    public ResponseEntity<String> getAssignedUserTask() throws Exception {
 
         return new ResponseEntity<>("Welcome to task service", HttpStatus.OK);
     }

@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: Task-submission-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskSubmissionTk
+    username: postgres
+    password: Alinogy7
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 5003
